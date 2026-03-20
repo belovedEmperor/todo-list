@@ -1,14 +1,14 @@
 {
-  "name": "<PROJECT_NAME>",
+  "name": "todo-list",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/<USERNAME>/<REPO>#readme",
+  "homepage": "https://github.com/belovedEmperor/todo-list#readme",
   "bugs": {
-    "url": "https://github.com/<USERNAME>/<REPO>/issues"
+    "url": "https://github.com/belovedEmperor/todo-list/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<USERNAME>/<REPO>.git"
+    "url": "git+https://github.com/belovedEmperor/todo-list.git"
   },
   "license": "ISC",
   "author": "",
