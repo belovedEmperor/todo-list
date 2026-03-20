@@ -1,14 +1,22 @@
 export default class TodoItem {
+  static PRIORITY = {
+    low: "low",
+    medium: "medium",
+    high: "high",
+  };
+
   #title;
   #description;
   #dueDate;
   #priority;
+  #isDone;
 
-  constructor(title, description, dueDate, priority) {
+  constructor(title, options = {}) {
     this.#title = title || "Untitled Task";
-    this.#description = description || "";
-    this.#dueDate = dueDate ? new Date(dueDate) : "";
-    this.#priority = priority || -1;
+    this.#description = options.description || "";
+    this.setDueDate(options.dueDate) || "";
+    this.#priority = options.priority || -1;
+    this.#isDone = options.isDone || false;
   }
 
   get title() {
@@ -16,23 +24,44 @@ export default class TodoItem {
   }
   set title(value) {
     this.#title = value;
+    return true;
   }
   get description() {
     return this.#description;
   }
   set description(value) {
     this.#description = value;
+    return true;
   }
+
   get dueDate() {
     return this.#dueDate;
   }
-  set dueDate(value) {
-    this.#dueDate = value;
+  setDueDate(date) {
+    const newDate = new Date(date);
+    if (!isNaN(newDate.valueOf())) {
+      this.#dueDate = newDate;
+      return true;
+    }
+    return false;
   }
+
   get priority() {
     return this.#priority;
   }
-  set priority(value) {
-    this.#priority = value;
+  set priority(priority) {
+    if (priority in this.PRIORITY) {
+      this.#priority = priority;
+      return true;
+    }
+    return false;
+  }
+
+  get isDone() {
+    return this.#isDone;
+  }
+  toggleDone() {
+    this.#isDone = !this.#isDone;
+    return true;
   }
 }
