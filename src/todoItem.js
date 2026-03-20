@@ -9,14 +9,12 @@ export default class TodoItem {
   #description;
   #dueDate;
   #priority;
-  #isDone;
 
   constructor(title, options = {}) {
     this.#title = title || "Untitled Task";
     this.#description = options.description || "";
     this.setDueDate(options.dueDate) || "";
     this.#priority = options.priority || -1;
-    this.#isDone = options.isDone || false;
   }
 
   get title() {
@@ -55,13 +53,5 @@ export default class TodoItem {
       return true;
     }
     return false;
-  }
-
-  get isDone() {
-    return this.#isDone;
-  }
-  toggleDone() {
-    this.#isDone = !this.#isDone;
-    return true;
   }
 }

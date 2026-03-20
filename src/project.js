@@ -9,6 +9,7 @@ export default class Project {
 
   appendToProject(item) {
     this.#list.push(item);
+    if (this.onUpdate) this.onUpdate();
   }
   removeFromProject(index) {
     this.#list.splice(index);

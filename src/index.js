@@ -9,7 +9,6 @@ const test = new TodoItem("test", {
   description: "test desc",
   dueDate: "2026-03-15",
   priority: TodoItem.PRIORITY.low,
-  isDone: true,
 });
 console.log(test.title);
 console.log(test.description);
@@ -19,11 +18,11 @@ const test2 = new TodoItem("test", {
   description: "test desc",
   dueDate: "2026-03-15",
   priority: TodoItem.PRIORITY.low,
-  isDone: true,
 });
 
 const defaultProject = new Project();
 defaultProject.appendToProject(test);
+defaultProject.appendToProject(test2);
 
 const ui = new userInterface();
-ui.updateTasks(defaultProject.list);
+ui.render(defaultProject);
